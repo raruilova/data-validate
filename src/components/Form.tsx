@@ -49,6 +49,18 @@ export const Form = () => {
     }
   };
 
+  const handleCancel = () => {
+    console.log("data");
+    setUserData({
+      name: "",
+      lastName: "",
+      ci: "",
+      age: 0,
+      email: "",
+      phone: "",
+    });
+  }
+
   return (
     <div className="container">
       <div className="screen">
@@ -61,6 +73,7 @@ export const Form = () => {
                 className="login__input"
                 name="name"
                 placeholder="Nombre"
+                value={userData.name}
                 required
                 minLength={3}
                 maxLength={60}
@@ -74,6 +87,7 @@ export const Form = () => {
                 className="login__input"
                 name="lastName"
                 placeholder="Apellido"
+                value={userData.lastName}
                 required
                 minLength={3}
                 maxLength={60}
@@ -86,6 +100,7 @@ export const Form = () => {
                 type="text"
                 className="login__input"
                 name="ci"
+                value={userData.ci}
                 required
                 placeholder="Cédula"
                 onChange={handleChange}
@@ -98,6 +113,7 @@ export const Form = () => {
                 className="login__input"
                 name="age"
                 placeholder="Edad"
+                value={userData.age}
                 required
                 min={1}
                 max={100}
@@ -110,6 +126,7 @@ export const Form = () => {
                 type="email"
                 className="login__input"
                 name="email"
+                value={userData.email}
                 placeholder="Email"
                 required
                 onChange={handleChange}
@@ -122,6 +139,7 @@ export const Form = () => {
                 className="login__input"
                 name="phone"
                 placeholder="Teléfono"
+                value={userData.phone}
                 required
                 minLength={10}
                 onChange={handleChange}
@@ -131,7 +149,12 @@ export const Form = () => {
               <span className="button__text">Registrar</span>
               <i className="button__icon fas fa-chevron-right"></i>
             </button>
+           
           </form>
+          <button className="button login__submit" type="button" onClick={handleCancel}>
+              <span className="button__text">Cancelar</span>
+              <i className="button__icon fas fa-chevron-right"></i>
+            </button>
         </div>
         <div className="screen__background">
           <span className="screen__background__shape screen__background__shape4"></span>
